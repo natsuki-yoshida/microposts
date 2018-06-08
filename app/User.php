@@ -18,6 +18,11 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
     
+        public function microposts()
+    {
+        return $this->hasMany(Micropost::class);
+    }
+    
 
     /**
      * The attributes that should be hidden for arrays.
@@ -34,5 +39,6 @@ User::create([
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
 
 
