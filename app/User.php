@@ -34,11 +34,5 @@ class User extends Authenticatable
     ];
 }
 
-User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
-
 
 
