@@ -31,6 +31,7 @@ class UsersController extends Controller
 
         return view('users.show', $data);
     }
+       
         public function followings($id)
     {
         $user = User::find($id);
