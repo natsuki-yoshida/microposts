@@ -8,7 +8,7 @@ use App\User; // add
 use App\Micropost;
 
 class UsersController extends Controller
-{
+{   
     public function index()
     {
         $users = User::paginate(10);
@@ -31,7 +31,8 @@ class UsersController extends Controller
 
         return view('users.show', $data);
     }
-       
+    
+      
         public function followings($id)
     {
         $user = User::find($id);
@@ -51,14 +52,27 @@ class UsersController extends Controller
     {
         $user = User::find($id);
         $followers = $user->followers()->paginate(10);
-
         $data = [
             'user' => $user,
             'users' => $followers,
         ];
-
         $data += $this->counts($user);
 
         return view('users.followers', $data);
+    }
+    
+           public function favorite($id)
+    {
+        $user = User::find($id);
+        $microposts = $user->favorites()->orderBy('created_at', 'desc')->paginate(10);
+
+        $data = [
+            'user' => $user,
+            'microposts' => $microposts,
+        ];
+
+        $data += $this->counts($user);
+
+        return view('favorites.favorites', $data);
     }
 }

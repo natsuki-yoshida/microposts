@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateFavoritesTable extends Migration
 {
-    /**
+    /*
      * Run the migrations.
      *
      * @return void
@@ -21,7 +21,7 @@ class CreateFavoritesTable extends Migration
 
             // Foreign key setting
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('micropost_id')->references('id')->on('favorites')->onDelete('cascade');
+            $table->foreign('micropost_id')->references('id')->on('microposts')->onDelete('cascade');
 
             // Do not allow duplication of combination of user_id and follow_id
             $table->unique(['user_id', 'micropost_id']);

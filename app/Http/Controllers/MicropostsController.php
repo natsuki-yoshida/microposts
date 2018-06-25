@@ -28,19 +28,19 @@ class MicropostsController extends Controller
         // }
             public function index()
     {
-    //     $data = [];
-    //     if (\Auth::check()) {
-    //         $user = \Auth::user();
-    //         $microposts = $user->feed_microposts()->orderBy('created_at', 'desc')->paginate(10);
+        // $data = [];
+        // if (\Auth::check()) {
+        //     $user = \Auth::user();
+        //     $microposts = $user->feed_microposts()->orderBy('created_at', 'desc')->paginate(10);
 
-    //         $data = [
-    //             'user' => $user,
-    //             'microposts' => $microposts,
-    //         ];
-    //     }
-    //     return view('welcome', $data);
-    
+        //     $data = [
+        //         'user' => $user,
+        //         'microposts' => $microposts,
+        //     ];
+        // }
+        // return view('welcome', $data);
         $data = [];
+        
         if (\Auth::check()) {
             $user = \Auth::user();
          
@@ -78,5 +78,7 @@ class MicropostsController extends Controller
 
         return redirect()->back();
     }
+    
+
     
 }
